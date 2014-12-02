@@ -1,0 +1,37 @@
+.repository {
+  margin: 0px 50px;
+  min-height: 100px;
+  padding: 10px;
+  padding-right: 125px;
+  position: relative;
+  border-bottom: 1px solid #CDCDCD;
+  transition: background-color 0.25s; }
+  .repository:hover {
+    background-color: #EEE; }
+    .repository:hover .view-repo {
+      color: brown; }
+  .repository:last-child {
+    border-bottom: none; }
+  .repository .view-repo {
+    height: 100px;
+    margin-top: -50px;
+    width: 100px;
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    color: burlywood;
+    text-align: center;
+    transition: color 0.25s; }
+    .repository .view-repo > a {
+      height: 100%;
+      width: 100%;
+      color: inherit;
+      display: block;
+      text-decoration: none; }
+      .repository .view-repo > a i {
+        font-size: 75px; }
+      .repository .view-repo > a span {
+        font-size: 12px;
+        display: inline-block; }
+
+/*# sourceMappingURL=gh-site.css.map */

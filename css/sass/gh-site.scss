@@ -1,0 +1,72 @@
+$timing: 0.25s;
+
+.repository{
+
+	// Dimensions
+	margin: 0px 50px;
+	min-height: 100px;
+	padding: 10px;
+	padding-right: 125px;
+
+	// Positioning
+	position: relative;
+
+	// Styling
+	border-bottom: 1px solid #CDCDCD;
+
+	// Transitions
+	transition: background-color $timing;
+
+
+	&:hover{
+		background-color: #EEE;
+
+		.view-repo{
+			color: brown;
+		}
+	}
+
+
+	&:last-child {
+		border-bottom: none;
+	}
+
+
+	.view-repo{
+		// Dimensions
+		height: 100px;
+		margin-top: -50px;
+		width: 100px;
+
+		// Positioning
+		position: absolute;
+		right: 10px;
+		top: 50%;
+
+		// Styling
+		color: burlywood;
+		text-align: center;
+
+		// Transitions
+		transition: color $timing;
+
+
+		& > a {
+			height: 100%;
+			width: 100%;
+
+			color: inherit;
+			display: block;
+			text-decoration: none;
+
+			i{
+				font-size: 75px;
+			}
+
+			span {
+				font-size: 12px;
+				display: inline-block;	
+			}
+		}
+	}
+}
