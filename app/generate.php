@@ -16,10 +16,15 @@ class GHPageBuilder {
 	 *
 	 * @param array[] config
 	 */
-	public function construct( array $config )
+	public function __construct( array $config )
 	{
 		$this->client = new GitHubClient();
 		$this->categories = $config['categories'];
+
+		foreach($this->categories as $key => $data)
+		{
+			$this->categories[$key]['repositories'] = array();
+		}
 
 		if( isset($config['username']) ){
 			$this->username = $config['username'];
@@ -61,10 +66,32 @@ class GHPageBuilder {
 	{
 		if(! $this->username ){
 			printf("Your github username? ");
-			$this->getStringValue();
+			$this->username = $this->getStringValue();
 		}
 
 		$this->runCommandLineInterface();
+	}
+
+	public function Save($filename = 'test.html')
+	{
+
+		printf("Building page content... \n");
+
+		// Load up our template and execute it, whilst saving the output buffer
+		ob_start();
+		$page = $this;
+		require_once(__DIR__ . '/template.php');
+		$html = ob_get_contents();
+		ob_end_clean();
+
+		// Write to file
+		printf("Saving page... \n");
+
+		$fp = fopen($filename, 'w');
+		fwrite($fp, $html);
+		fclose($fp);
+
+		printf("Page saved!");
 	}
 
 
@@ -75,7 +102,7 @@ class GHPageBuilder {
 	private function runCommandLineInterface()
 	{
 		printf("Connecting to Github and retrieving repositories...\n");
-		$repositories = $this->client->listUserRepositories($owner, 'updated');
+		$repositories = $this->client->repos->listUserRepositories($this->username, 'updated');
 		printf("Retrieved repositories!\n");
 
 		$this->processRepositories($repositories);
@@ -88,6 +115,9 @@ class GHPageBuilder {
 	 */
 	private function processRepositories($repos)
 	{
+		$numOfCats = count($this->categories);
+		$keys = array_keys($this->categories);
+
 		foreach($repos as $repo)
 		{
 			printf("Output '%s' on repository listing? [y/n]\n", $repo->getName());
@@ -100,34 +130,40 @@ class GHPageBuilder {
 
 			printf("Select which category to place this repository under: \n");
 
-			foreach( $this->categories as $index => $cat )
+			for($i=0;$i<$numOfCats;$i++)
 			{
-				printf("\t[%d] - %s\n", $index, $cat);
+				printf("\t[%d] - %s\n", $i, $keys[$i] );
 			}
 
-			$resp = $this->getIntegerValue(0, length($this->categories));
+			$resp = $this->getIntegerValue(0, $numOfCats);
 
-			$this->categories[ $this->categories[$resp] ]['repositories'][] = $repo;
+			$this->categories[ $keys[$resp] ]['repositories'][] = $repo;
 
-			printf("Added '%s' to '%s'!\n\n", $repo->getName(), $this->categories[ $resp ]);
+			printf("Added '%s' to '%s'!\n\n", $repo->getName(), $keys[$resp]);
 		}
 	}
 
 	private function getBooleanValue()
 	{
+		$char = '';			
+
 		while(! in_array(
 				($char = fgetc(STDIN)),
 				['y', 'Y', 'n', 'N']
 			)
 		);
 
-		return (strtolower($line) == 'y');
+		return (strtolower($char) == 'y');
 	}
 
-	private function getIntegerValue($min, $max)
+	private function getIntegerValue($min = 0, $max)
 	{
+		$char = '';
+
 		while(!
-		 	((int)($char = fgetc(STDIN)) > $min) && ((int)$char < $max)
+			is_numeric( $char = fgetc(STDIN) )
+			&& (int)$char >= $min
+			&& ((int)$char <= $max)
 		 );
 
 		return (int)$char;
@@ -145,7 +181,4 @@ require_once(__DIR__ . '/config.php');
 
 $page = new GHPageBuilder( $config );
 $page->Execute();
-
-/* Save Output Buffer */
-
-require_once(__DIR__ . '/template.php');
+$page->Save();
