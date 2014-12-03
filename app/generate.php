@@ -72,7 +72,7 @@ class GHPageBuilder {
 		$this->runCommandLineInterface();
 	}
 
-	public function Save($filename = 'test.html')
+	public function Save($filename = 'index.html')
 	{
 
 		printf("Building page content... \n");
@@ -84,9 +84,9 @@ class GHPageBuilder {
 		$html = ob_get_contents();
 		ob_end_clean();
 
-		// Write to file
 		printf("Saving page... \n");
 
+		// Write to file
 		$fp = fopen($filename, 'w');
 		fwrite($fp, $html);
 		fclose($fp);
