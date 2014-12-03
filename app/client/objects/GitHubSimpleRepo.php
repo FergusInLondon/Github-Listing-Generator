@@ -21,6 +21,7 @@ class GitHubSimpleRepo extends GitHubObject
 			'fork' => 'boolean',
 			'url' => 'string',
 			'html_url' => 'string',
+			'language' => 'string'
 		));
 	}
 	
@@ -68,6 +69,11 @@ class GitHubSimpleRepo extends GitHubObject
 	 * @var string
 	 */
 	protected $html_url;
+
+	/**
+	 * @var string
+	 */
+	protected $language;
 
 	/**
 	 * @return int
@@ -139,6 +145,14 @@ class GitHubSimpleRepo extends GitHubObject
 	public function getHtmlUrl()
 	{
 		return $this->html_url;
+	}
+
+	/**
+	 * @return language
+	 */
+	public function getLanguage()
+	{
+		return $this->language;
 	}
 
 }
