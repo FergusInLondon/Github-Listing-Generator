@@ -32,7 +32,7 @@
 				</div>
 			</div>
 
-			<div class="fw-breaker" style="background: url('http://lorempixel.com/1450/500/city');"></div>
+			<div class="fw-breaker" id="gh-image"></div>
 
 			<div class="container">
 				<div class="row">

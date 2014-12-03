@@ -70,3 +70,16 @@ $timing: 0.25s;
 		}
 	}
 }
+
+#gh-image{
+	background-image: url('http://lorempixel.com/1450/500/city');
+
+	.attribution{
+		opacity: 0;
+		transition: color $timing;		
+	}
+
+	&:hover .attribution{
+		opacity: 1;
+	}
+}

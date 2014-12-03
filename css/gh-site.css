@@ -34,4 +34,12 @@
         font-size: 12px;
         display: inline-block; }
 
+#gh-image {
+  background-image: url("http://lorempixel.com/1450/500/city"); }
+  #gh-image .attribution {
+    opacity: 0;
+    transition: color 0.25s; }
+  #gh-image:hover .attribution {
+    opacity: 1; }
+
 /*# sourceMappingURL=gh-site.css.map */
