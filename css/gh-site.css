@@ -16,6 +16,7 @@
     height: 100px;
     margin-top: -50px;
     width: 100px;
+    display: none;
     position: absolute;
     right: 10px;
     top: 50%;
@@ -35,7 +36,7 @@
         display: inline-block; }
 
 #gh-image {
-  background-image: url("http://lorempixel.com/1450/500/city"); }
+  background-image: url("/img/featured-img.jpg"); }
   #gh-image .attribution {
     opacity: 0;
     transition: color 0.25s; }

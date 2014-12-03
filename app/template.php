@@ -89,23 +89,6 @@
 		<script src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
 		<script src="js/bootstrap.min.js"></script>
 		<script src="js/randomise.jq.js"></script>
-		<script>
-			jQuery(
-				function(){
-					jQuery('.link-icons .fa').randomClasses({
-						classes : ['red', 'blue', 'green', 'yellow', 'pink']
-					});
-
-					// @TODO - actually make this kinda nice.
-					jQuery('[data-toggler]').click(
-						function(){
-							var val = jQuery(this).attr('data-toggler');
-							jQuery('[data-togglee]').removeClass('active');
-							jQuery('[data-toggle="*'+val+'*"]').addClass('active');							
-						}
-					);
-				}
-			);
-		</script>
+		<script src="js/main.js"></script>
 	</body>
 </html>

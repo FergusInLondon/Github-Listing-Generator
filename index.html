@@ -32,7 +32,7 @@
 				</div>
 			</div>
 
-			<div class="fw-breaker" style="background: url('http://lorempixel.com/1450/500/city');"></div>
+			<div class="fw-breaker" id="gh-image"></div>
 
 			<div class="container">
 				<div class="row">
@@ -49,22 +49,33 @@
 							<p class="lead">Professionally, I spend my working hours writing enterprise level Object Oriented PHP code targetting the LAMP stack - although I also have experience working on modular architectures for front end development using systems such as RequireJS.</p>
 
 														<div class="repository">
-								<h3>Assorted-jQuery-Plugins</h3>
-								<p>A collection of jQuery plugins,</p>
+								<h3>Cordova-Plugins</h3>
+								<p>PhoneGap/Cordova Plugins which I've made</p>
 
 								<div class="view-repo">
-									<a href="https://api.github.com/repos/fmorrow/Assorted-jQuery-Plugins">
+									<a href="https://api.github.com/repos/fmorrow/Cordova-Plugins">
 										<i class="fa fa-github"></i>
 										<span>View Repository</span>
 									</a>
 								</div>
 							</div>
 														<div class="repository">
-								<h3>fmorrow.github.io</h3>
-								<p>fmorrow.github.io - Powered by a very small PHP CLI app which indexes Git repositories associated with a given Github account, and generates a pretty html page based on a user provided template.</p>
+								<h3>CSVUtil</h3>
+								<p>CSVUtil provides an intuitive and familiar interface for working with CSV files.</p>
 
 								<div class="view-repo">
-									<a href="https://api.github.com/repos/fmorrow/fmorrow.github.io">
+									<a href="https://api.github.com/repos/fmorrow/CSVUtil">
+										<i class="fa fa-github"></i>
+										<span>View Repository</span>
+									</a>
+								</div>
+							</div>
+														<div class="repository">
+								<h3>Design-Patterns-101</h3>
+								<p>A collection of example Design Patterns</p>
+
+								<div class="view-repo">
+									<a href="https://api.github.com/repos/fmorrow/Design-Patterns-101">
 										<i class="fa fa-github"></i>
 										<span>View Repository</span>
 									</a>
@@ -95,33 +106,22 @@
 								</div>
 							</div>
 														<div class="repository">
-								<h3>PATS</h3>
-								<p>Pragmatic Algorithm Test Suite</p>
+								<h3>Assorted-jQuery-Plugins</h3>
+								<p>A collection of jQuery plugins,</p>
 
 								<div class="view-repo">
-									<a href="https://api.github.com/repos/fmorrow/PATS">
+									<a href="https://api.github.com/repos/fmorrow/Assorted-jQuery-Plugins">
 										<i class="fa fa-github"></i>
 										<span>View Repository</span>
 									</a>
 								</div>
 							</div>
 														<div class="repository">
-								<h3>SensorSearch</h3>
-								<p>(Android Application) Lists all device sensors - vendor, version and other technical details.</p>
+								<h3>Codefolio</h3>
+								<p>Wordpress plugin for showcasing Gists</p>
 
 								<div class="view-repo">
-									<a href="https://api.github.com/repos/fmorrow/SensorSearch">
-										<i class="fa fa-github"></i>
-										<span>View Repository</span>
-									</a>
-								</div>
-							</div>
-														<div class="repository">
-								<h3>SMCWrapper</h3>
-								<p>A clean and documented OOP wrapper around the AppleSMC IOService on Mac OS X.</p>
-
-								<div class="view-repo">
-									<a href="https://api.github.com/repos/fmorrow/SMCWrapper">
+									<a href="https://api.github.com/repos/fmorrow/Codefolio">
 										<i class="fa fa-github"></i>
 										<span>View Repository</span>
 									</a>
@@ -152,23 +152,6 @@
 		<script src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
 		<script src="js/bootstrap.min.js"></script>
 		<script src="js/randomise.jq.js"></script>
-		<script>
-			jQuery(
-				function(){
-					jQuery('.link-icons .fa').randomClasses({
-						classes : ['red', 'blue', 'green', 'yellow', 'pink']
-					});
-
-					// @TODO - actually make this kinda nice.
-					jQuery('[data-toggler]').click(
-						function(){
-							var val = jQuery(this).attr('data-toggler');
-							jQuery('[data-togglee]').removeClass('active');
-							jQuery('[data-toggle="*'+val+'*"]').addClass('active');							
-						}
-					);
-				}
-			);
-		</script>
+		<script src="js/main.js"></script>
 	</body>
 </html>
