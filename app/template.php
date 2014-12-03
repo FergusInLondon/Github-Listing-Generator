@@ -52,11 +52,11 @@
 
 							<?php foreach( $category['repositories'] as $repo ): ?>
 							<div class="repository">
-								<h3><?php echo $repo->getName(); ?></h3>
+								<h3><span class="label label-info"><?php echo $repo->getLanguage();?></span> <?php echo $repo->getName(); ?></h3>
 								<p><?php echo $repo->getDescription(); ?></p>
 
 								<div class="view-repo">
-									<a href="<?php echo $repo->getUrl(); ?>">
+									<a href="<?php echo $repo->getHtmlUrl(); ?>">
 										<i class="fa fa-github"></i>
 										<span>View Repository</span>
 									</a>

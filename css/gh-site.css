@@ -12,6 +12,8 @@
       color: brown; }
   .repository:last-child {
     border-bottom: none; }
+  .repository .label.label-info {
+    float: right; }
   .repository .view-repo {
     height: 100px;
     margin-top: -50px;
