@@ -25,7 +25,7 @@
 				</nav>
 
 				<div class="blog-header">
-					<a href="http://recontent.dev/">
+					<a href="http://fergus.london/">
 						<h1 class="blog-title">Fergus Morrow...</h1>
 					</a>
 					<p class="lead blog-description">... <em>and his code.</em></p>
@@ -37,8 +37,12 @@
 			<div class="container">
 				<div class="row">
 					<div class="col-sm-12 blog-main">
+						
+						<!-- Categories -->
 						<?php foreach( $page->Categories() as $title => $category ): ?>
 						<article class="blog-post">
+							
+							<!-- Category Information -->
 							<header>
 								<h2 class="blog-post-title"><?php echo $title; ?></h2>
 								<p class="blog-post-meta">
@@ -49,7 +53,9 @@
 							</header>
 
 							<p class="lead"><?php echo $category['desc']; ?></p>
+							<!-- EOF Category Information -->
 
+							<!-- Repositories -->
 							<?php foreach( $category['repositories'] as $repo ): ?>
 							<div class="repository">
 								<h3><span class="label label-info"><?php echo $repo->getLanguage();?></span> <?php echo $repo->getName(); ?></h3>
@@ -62,9 +68,13 @@
 									</a>
 								</div>
 							</div>
-							<? endforeach; ?>
+							<? endforeach; ?>							
+							<!-- EOF Repositories -->
+							
 						</article>
 						<? endforeach; ?>
+						<!-- EOF Categories -->
+
 					</div>
 				</div>
 			</div>
@@ -90,5 +100,15 @@
 		<script src="js/bootstrap.min.js"></script>
 		<script src="js/randomise.jq.js"></script>
 		<script src="js/main.js"></script>
+		
+		<script>
+			(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+				(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+				m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+			})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+			
+			ga('create', 'UA-57659640-1', 'auto');
+			ga('send', 'pageview');
+		</script>
 	</body>
 </html>

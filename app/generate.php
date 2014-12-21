@@ -10,14 +10,15 @@ class GHPageBuilder {
 	/** @var string $username */
 	private $username;
 
+
 	/**
 	 * Constructor; configures a new GitHubClient object and populates values
 	 *  taken from the config array.
-	 *
-	 * @param array[] config
 	 */
-	public function __construct( array $config )
+	public function __construct()
 	{
+		$config = self::loadConfigFromFile();
+		
 		$this->client = new GitHubClient();
 		$this->categories = $config['categories'];
 
@@ -29,6 +30,17 @@ class GHPageBuilder {
 		if( isset($config['username']) ){
 			$this->username = $config['username'];
 		}
+	}
+
+
+	/**
+	 * Loads configuration details from config.php - returns populated array.
+	 *
+	 * @return array 
+	 */	
+	public function loadConfigFromFile()
+	{
+		include(__DIR__ . '/config.php');
 	}
 
 
@@ -70,6 +82,7 @@ class GHPageBuilder {
 		}
 
 		$this->runCommandLineInterface();
+		$this->Save();
 	}
 
 	public function Save($filename = 'index.html')
@@ -108,15 +121,18 @@ class GHPageBuilder {
 		$this->processRepositories($repositories);
 	}
 
+
 	/**
 	 * Iterate through all the repositories and prompt the user as to whether they
 	 *  want the repository contained in their public listing. If they do, prompt
 	 *  them to choose a category to display it under.
+	 *
+	 * @param GitHubSimpleRepo[] $repos - Array of user repository objects
 	 */
 	private function processRepositories($repos)
 	{
-		$numOfCats = count($this->categories);
-		$keys = array_keys($this->categories);
+		$numOfCats	= count($this->categories);
+		$categories	= array_keys($this->categories);
 
 		foreach($repos as $repo)
 		{
@@ -132,17 +148,23 @@ class GHPageBuilder {
 
 			for($i=0;$i<$numOfCats;$i++)
 			{
-				printf("\t[%d] - %s\n", $i, $keys[$i] );
+				printf("\t[%d] - %s\n", $i, $categories[$i] );
 			}
 
 			$resp = $this->getIntegerValue(0, $numOfCats);
 
-			$this->categories[ $keys[$resp] ]['repositories'][] = $repo;
+			$this->categories[ $categories[$resp] ]['repositories'][] = $repo;
 
-			printf("Added '%s' to '%s'!\n\n", $repo->getName(), $keys[$resp]);
+			printf("Added '%s' to '%s'!\n\n", $repo->getName(), $categories[$resp]);
 		}
 	}
 
+
+	/**
+	 * Gets a boolean value from STDIN; y/Y = true / n/N = false.
+	 *
+	 * @return boolean 
+	 */
 	private function getBooleanValue()
 	{
 		$char = '';			
@@ -156,6 +178,14 @@ class GHPageBuilder {
 		return (strtolower($char) == 'y');
 	}
 
+
+	/**
+	 * Gets an integer value from STDIN.
+	 *
+	 * @param integer ($min) Min value to accept (default: 0)
+	 * @param integer ($max) Max value to accept
+	 * @return integer
+	 */
 	private function getIntegerValue($min = 0, $max)
 	{
 		$char = '';
@@ -169,16 +199,17 @@ class GHPageBuilder {
 		return (int)$char;
 	}
 
+
+	/**
+	 * Gets a string value from STDIN.
+	 *
+	 * @return string 
+	 */
 	private function getStringValue()
 	{
 		$str = fgets(STDIN);
 		return trim($str);
 	}
-
 }
 
-require_once(__DIR__ . '/config.php');
-
-$page = new GHPageBuilder( $config );
-$page->Execute();
-$page->Save();
+$page = new GHPageBuilder();
