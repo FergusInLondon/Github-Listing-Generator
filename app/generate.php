@@ -30,6 +30,8 @@ class GHPageBuilder {
 		if( isset($config['username']) ){
 			$this->username = $config['username'];
 		}
+		
+		$this->Execute();
 	}
 
 
@@ -40,7 +42,7 @@ class GHPageBuilder {
 	 */	
 	public function loadConfigFromFile()
 	{
-		include(__DIR__ . '/config.php');
+		return include(__DIR__ . '/config.php');
 	}
 
 
