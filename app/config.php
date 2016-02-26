@@ -5,7 +5,7 @@ return array(
 	/**
 	 * @var Github username
 	 */
-	'username' => 'fmorrow',
+	'username' => 'fergusinlondon',
 	
 	/**
 	 * @var array[] categories
@@ -23,7 +23,7 @@ return array(
 
 		'Other' => [
 			'langs' => ["Objective-C", "Java", "C"],
-			'desc'	=> "In my spare time I also write C code targetting the Atmel AVR series of microcontrollers; (ala Arduino) as well as dabble in Java and Objective-C."
+			'desc'	=> "Despite also knowing Objective-C, Java and C - I'm currently spending most of my spare time writing only C."
 		]	// eof 'category'
 	] // eof 'categories'
 

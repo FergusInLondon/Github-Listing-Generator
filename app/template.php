@@ -7,7 +7,7 @@
 		<meta name="description" content="">
 		<meta name="author" content="">
 
-		<title>Fergus Morrow - Code</title>
+		<title>FergusInLondon - Code</title>
 
 		<link href="css/bootstrap.min.css" rel="stylesheet">
 		<link href="css/font-awesome.min.css" rel="stylesheet">
@@ -26,9 +26,8 @@
 
 				<div class="blog-header">
 					<a href="http://fergus.london/">
-						<h1 class="blog-title">Fergus Morrow...</h1>
+						<h1 class="blog-title">FergusInLondon</h1>
 					</a>
-					<p class="lead blog-description">... <em>and his code.</em></p>
 				</div>
 			</div>
 
@@ -85,9 +84,8 @@
 				<footer class="blog-footer">
 					<ul class="link-icons">
 						<li><a href="http://stackoverflow.com/users/1475897/fergus-morrow"><i class="fa fa-stack-exchange"></i></a></li>
-						<li><a href="skype:fergus.morrow"><i class="fa fa-skype"></i></a></li>
-						<li><a href="https://bitbucket.org/fmorrow"><i class="fa fa-bitbucket"></i></a></li>
-						<li><a href="http://www.twitter.com/FergusMorrow"><i class="fa fa-twitter"></i></a></li>
+						<li><a href="skype:fergusinlondon"><i class="fa fa-skype"></i></a></li>
+						<li><a href="http://www.twitter.com/FergusInLondon"><i class="fa fa-twitter"></i></a></li>
 					</ul>
 
 					<span>Hosted on <i class="fa fa-github"></i>.</span>
