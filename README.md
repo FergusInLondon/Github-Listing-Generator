@@ -1,4 +1,4 @@
-# github.fmorrow.io
+# Github Listing Generator (Unmaintained.)
 
 A quick'n'dirty PHP static site generator for creating a "*Github Pages*" page. You can see what it's capable of overe at my [Github Pages](http://github.fergus.london).
 
